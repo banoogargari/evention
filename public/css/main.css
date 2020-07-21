@@ -1,0 +1,17 @@
+.eventDetails {
+    border-bottom: 1px grey solid;
+    padding: 25px;
+}
+
+.eventDescription {
+    padding: 25px;
+}
+
+.caption {
+    padding: 25px;
+}
+
+/* .caption > p {
+    height: 100px;
+} */
+
