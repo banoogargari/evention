@@ -7,6 +7,7 @@
   </div>
 </div>
 
+<hr>
 {{-- Popular Events --}}
 <div class="container">
   <h2>Popular Events</h2>
@@ -36,9 +37,9 @@
 
 </div>  
 
-
+<hr>
 <div class="container">
-  <h2>Recent Events</h2>
+  <h2>Upcoming Events</h2>
   <div class="row">
 		@forelse($events as $event)
       

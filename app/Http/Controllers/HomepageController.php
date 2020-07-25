@@ -10,7 +10,7 @@ class HomepageController extends Controller
     
     public function index()
     {
-        $events = DB::table('events')->get();
+        $events = DB::table('events')->orderBy('date', 'desc')->get();
         $popevents = DB::table('events')->orderBy('purchasenum', 'desc')->get();
         
         return view('welcome')
