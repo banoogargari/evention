@@ -14,15 +14,25 @@ class CreateEventsTable extends Migration
     public function up()
     {
 
-		Schema::create('eventplanner', function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('The Primary Key for the table.');
-            $table->string('firstName', 255)->comment('The Name of the user.');
-			$table->string('lastName', 255)->comment('The lastName of the user.');
-			$table->text('email')->comment('The email of the user');
-            $table->date('birthday')->comment('Birthday.');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        // Schema::create('users', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('name');
+        //     $table->string('email')->unique();
+        //     $table->timestamp('email_verified_at')->nullable();
+        //     $table->string('password');
+        //     $table->rememberToken();
+        //     $table->timestamps();
+        // });
+
+		// Schema::create('eventplanner', function (Blueprint $table) {
+        //     $table->bigIncrements('id')->comment('The Primary Key for the table.');
+        //     $table->string('firstName', 255)->comment('The Name of the user.');
+		// 	$table->string('lastName', 255)->comment('The lastName of the user.');
+		// 	$table->text('email')->comment('The email of the user');
+        //     $table->date('birthday')->comment('Birthday.');
+        //     $table->timestamps();
+        //     $table->softDeletes();
+        // });
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('The Primary Key for the table.');
 			$table->unsignedBigInteger('user_id')->index('user_id')->comment('The corresponding user.');
