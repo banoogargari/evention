@@ -15,6 +15,13 @@
                     @endif
 
                     "Welcome back"
+
+                    <h2>My Events</h2>
+                    <p><a href="{{ route('events.index') }}">Click Here</a> to view and manage all your events</p>
+                    
+                    <h2>My Tickets</h2>
+                    <p><a href="{{ route('bookings.index') }}">Click Here</a> to view and manage all your tickets</p>
+
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label class="col-sm-2 col-form-label"for="user_id">User</label>
         <div class="col-sm-10">
             <select name="user_id" class="form-control" id="user_id" required>
@@ -20,7 +20,7 @@
             </select>
             <small class="form-text text-muted">The user booking the event.</small>
         </div>
-    </div>
+    </div> -->
 
     <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="bookingDate">Booking Date</label>

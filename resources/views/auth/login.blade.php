@@ -62,9 +62,16 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                        {{ __('Have not register? Sign up Here') }}
+                                </a>
+
+
                             </div>
                         </div>
                     </form>
+                    
                 </div>
             </div>
         </div>

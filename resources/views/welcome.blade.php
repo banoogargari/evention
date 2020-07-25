@@ -20,7 +20,7 @@
             </a>
             <div class="caption">
               <p>{{ $event->date }}</p>
-              <p style="height:100px">{{ $event->title }}</p>
+              <p style="height:60px; font-weight:bold">{{ $event->title }}</p>
               
               <p><a href="events/{{$event->id}}" class="btn btn-primary" role="button">View</a> <a href="#" class="btn btn-default" role="button">Save</a></p> 
               
