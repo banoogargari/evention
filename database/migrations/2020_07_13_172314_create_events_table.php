@@ -30,7 +30,7 @@ class CreateEventsTable extends Migration
             $table->text('description')->comment('The full text description of the event.');
 			$table->text('image')->comment('Image of the event.');
 			$table->text('date')->comment('date of the event.');
-            $table->integer('value')->comment('The rate of the event.');
+            $table->floatval('value')->comment('The rate of the event.');
             $table->integer('capacity')->comment('The capacity of the event.');
             $table->timestamps();
             $table->softDeletes();
