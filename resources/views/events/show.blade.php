@@ -18,6 +18,8 @@
         <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ticket</a>
         <a href="#" class="btn btn-light active" role="button" aria-pressed="true">Save</a>
 
+        <p>Purchase quantity: {{ $event-> purchasenum }}</p>
+
         <p>Video price: ${{ $event-> video_price }}</p>
         
     </div>

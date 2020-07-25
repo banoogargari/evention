@@ -7,6 +7,35 @@
   </div>
 </div>
 
+{{-- Popular Events --}}
+<div class="container">
+  <h2>Popular Events</h2>
+  <div class="row">
+		@forelse($popevents as $pevent)
+      
+        <div class="col-sm-6 col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <a href="events/{{$pevent->id}}"><img class="img-thumbnail img-fluid" src="{{$pevent->image}}" alt="">
+                
+            </a>
+            <div class="caption">
+              <p>{{ $pevent->date }}</p>
+              <p style="height:60px; font-weight:bold">{{ $pevent->title }}</p>
+              
+              <p><a href="events/{{$pevent->id}}" class="btn btn-primary" role="button">View</a> <a href="#" class="btn btn-default" role="button">Save</a></p> 
+              
+            </div>
+          </div>
+        </div>
+      
+      
+    @empty
+    @endforelse
+    </div>
+  </div>
+
+</div>  
+
 
 <div class="container">
   <h2>Recent Events</h2>
@@ -34,6 +63,7 @@
     </div>
   </div>
 
-</div>        
+</div>
+      
             
 @endsection
