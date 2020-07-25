@@ -13,16 +13,16 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-		
-		// // Schema::create('eventplanner', function (Blueprint $table) {
-        // //     $table->bigIncrements('id')->comment('The Primary Key for the table.');
-        // //     $table->string('firstName', 255)->comment('The Name of the user.');
-		// // 	$table->string('lastName', 255)->comment('The lastName of the user.');
-		// // 	$table->text('email')->comment('The email of the user');
-        // //     $table->date('birthday')->comment('Birthday.');
-        // //     $table->timestamps();
-        // //     $table->softDeletes();
-        // });
+
+		Schema::create('eventplanner', function (Blueprint $table) {
+            $table->bigIncrements('id')->comment('The Primary Key for the table.');
+            $table->string('firstName', 255)->comment('The Name of the user.');
+			$table->string('lastName', 255)->comment('The lastName of the user.');
+			$table->text('email')->comment('The email of the user');
+            $table->date('birthday')->comment('Birthday.');
+            $table->timestamps();
+            $table->softDeletes();
+        });
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('The Primary Key for the table.');
 			$table->unsignedBigInteger('user_id')->index('user_id')->comment('The corresponding user.');
@@ -73,6 +73,7 @@ class CreateEventsTable extends Migration
         Schema::dropIfExists('events');
         Schema::dropIfExists('bookings');
         Schema::dropIfExists('savings');
+        Schema::dropIfExists('users');
         
     }
 }
