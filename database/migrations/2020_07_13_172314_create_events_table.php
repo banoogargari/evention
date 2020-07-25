@@ -14,15 +14,15 @@ class CreateEventsTable extends Migration
     public function up()
     {
 		
-		// // Schema::create('eventplanner', function (Blueprint $table) {
-        // //     $table->bigIncrements('id')->comment('The Primary Key for the table.');
-        // //     $table->string('firstName', 255)->comment('The Name of the user.');
-		// // 	$table->string('lastName', 255)->comment('The lastName of the user.');
-		// // 	$table->text('email')->comment('The email of the user');
-        // //     $table->date('birthday')->comment('Birthday.');
-        // //     $table->timestamps();
-        // //     $table->softDeletes();
-        // });
+		Schema::create('eventplanner', function (Blueprint $table) {
+            $table->bigIncrements('id')->comment('The Primary Key for the table.');
+            $table->string('firstName', 255)->comment('The Name of the user.');
+			$table->string('lastName', 255)->comment('The lastName of the user.');
+			$table->text('email')->comment('The email of the user');
+            $table->date('birthday')->comment('Birthday.');
+            $table->timestamps();
+            $table->softDeletes();
+        });
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('The Primary Key for the table.');
 			$table->unsignedBigInteger('user_id')->index('user_id')->comment('The corresponding user.');
@@ -30,7 +30,7 @@ class CreateEventsTable extends Migration
             $table->text('description')->comment('The full text description of the event.');
 			$table->text('image')->comment('Image of the event.');
 			$table->text('date')->comment('date of the event.');
-            $table->floatval('value')->comment('The rate of the event.');
+            $table->float('value')->comment('The rate of the event.');
             $table->integer('capacity')->comment('The capacity of the event.');
             $table->timestamps();
             $table->softDeletes();
