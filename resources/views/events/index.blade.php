@@ -30,7 +30,7 @@
                 <td>{{ $event->description }}</td>
 				<td><img src="{{ $event->image }}" width="60" alt=""></td>
                 <td>{{ $event->date }}</td>
-                <td>{{ $event->value }}</td>
+                <td>${{ $event->value }}</td>
                 <td>{{ $event->capacity }}</td>
                 <td>{{ date('F d, Y', strtotime($event->created_at)) }}</td>
 				<td class="actions">
