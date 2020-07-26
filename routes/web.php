@@ -26,5 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', function() { return "Goodbye"; });
 
 Route::resource('bookings', 'BookingController');
+Route::get('/bookings/createNew/{id}', 'BookingController@createNew')->name('bookings.createNew')->middleware('auth');
+
 
 Route::resource('events', 'EventController');
