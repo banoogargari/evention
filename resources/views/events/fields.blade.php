@@ -1,3 +1,4 @@
+{{-- 
 <!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label"for="user_id">User</label>
     <div class="col-sm-10">
@@ -9,6 +10,7 @@
         <small class="form-text text-muted">The user create the event.</small>
     </div>
 </div> -->
+--}}
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label" for="title">Event title</label>
@@ -59,6 +61,29 @@
         <small class="form-text text-muted">The Event Capacity.</small>
     </div>
 </div>
+
+ <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="video_price">Video Price</label>
+    <div class="col-sm-10">
+        <input name="video_price" type="text" class="form-control" value="{{ $event->video_price ?? '' }}"/>
+        <small class="form-text text-muted">The price of the video.</small>
+    </div>
+</div>
+
+
+
+<!--
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="video_available_date">video availablity</label>
+    <div class="col-sm-10">
+        <input name="video_available_date" type="text" class="form-control" value="{{ $event->video_available_date ?? '' }}"/>
+        <small class="form-text text-muted">Video Availability date.</small>
+    </div>
+</div> -->
+
+
+
+
 
 
 @csrf

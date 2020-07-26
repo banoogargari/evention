@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\booking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -13,9 +14,15 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function index()
-    {
-        $bookings = DB::table('bookings') ->get();
+    {   
+        $userId = Auth::user()->id;
+        $bookings = DB::table('bookings')->where('user_id', $userId)->get();
         return view ('bookings.index')
             ->with('bookings', $bookings);
     }
@@ -42,10 +49,10 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $userId = Auth::user()->id;
         $id = DB::table('bookings') -> insertGetId([
             'event_id' => $request->input('event_id'),
-            'user_id' => $request->input('user_id'),
+            'user_id' => $userId,
             'bookingDate' => $request->input('bookingDate'),
 
         ]);
@@ -88,11 +95,12 @@ class BookingController extends Controller
      */
     public function update(Request $request, booking $booking)
     {
+        $userId = Auth::user()->id;
         DB::table('bookings')
         ->where ('id', $booking->id)
         ->update([
             'event_id' => $request->input('event_id'),
-            'user_id' => $request->input('user_id'),
+            'user_id' => $userId,
             'bookingDate' => $request->input('bookingDate'),
         ]);
         

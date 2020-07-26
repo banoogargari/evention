@@ -19,6 +19,7 @@ class EventController extends Controller
     public function __construct(){
         $this->middleware('auth')->except(['show']);
     }
+
     public function index()
     {
         
@@ -37,11 +38,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        $users = DB::table('users')->get()->pluck('name', 'id')->prepend('name');
+        //$users = DB::table('users')->get()->pluck('name', 'id')->prepend('name');
 
         // $events = DB::table('events')->get()->pluck('title', 'id');
-        return view('events.create')
-            ->with('users', $users);
+        return view('events.create');
+            //->with('users', $users);
     
     }
 
@@ -64,6 +65,10 @@ class EventController extends Controller
             'date' => $request->input('date'),
             'value' => $request->input('value'),
             'capacity' => $request->input('capacity'),
+            'video_price' => $request->input('video_price'),
+            // 'video_available_date' => $request->input('video_available_date'),
+            
+
             
         ]);
         return redirect()->action('EventController@index');
@@ -77,7 +82,15 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('events.show', ['event' => $event]);
+        //dd($event);
+        $user_name = DB::table('events')
+        ->join('users', 'events.user_id', '=', 'users.id')
+        ->where('events.id', '=', $event->id)
+        ->select('name')
+        ->get()->all();
+        //$users = DB::table('users')->join($event, 'users.id', '=', 'event.user_id')->get();
+        //dd($user_name);
+        return view('events.show', ['event' => $event , 'user_name' => $user_name]);
     }
 
     /**
