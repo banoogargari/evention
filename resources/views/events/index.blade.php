@@ -34,31 +34,25 @@
                 <td>{{ $event->capacity }}</td>
                 <td>{{ date('F d, Y', strtotime($event->created_at)) }}</td>
 				<td class="actions">
-                    <a style = "padding : 1px 22px" class = "alert alert-primary"
+                    <a style = "padding : 1px 67px" class = "alert alert-primary"
                         href="{{action('EventController@show', ['event' => $event->id])}}"
                         alt="View"
                         title="View">
                       View
                     </a><br>
-                    <a style = "padding : 1px 26px" class = "alert alert-success"
+                    <a style = "padding : 1px 71px" class = "alert alert-success"
                         href="{{ action('EventController@edit', ['event' => $event->id]) }}"
                         alt="Edit"
                         title="Edit">
                       Edit
-                    </a>
+                    </a><br>
 
-                    <a
+                    <a  style = "padding : 1px 25px" class = "alert alert-secondary"
                         href="#"
                         alt="Participants"
-                        title="Participants">
-                      View Participants
-                    </a>
-                   
-                      <!-- <form  action="{{route('events.destroy', ['event' => $event->id])}}" method="POST">
-                                   @method('DELETE')    
-                                      
-                             <button style = "padding : 1px 17px; " type="submit" class="btn btn-danger">Delete</button>                               
-                    </form>             -->
+                        title="View Participants">
+                       ViewParticipants
+                    </a><br>
 
                     {!!Form::open(['action' => ['EventController@destroy', $event->id], 'method' => 'POST'])!!}
                         {{Form::hidden('_method','DELETE')}}
