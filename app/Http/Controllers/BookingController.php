@@ -41,6 +41,36 @@ class BookingController extends Controller
             ->with('events', $events);
     }
 
+    public function createNew($eventId)
+    {
+        //dd($eventId);
+        $userId = Auth::user()->id;
+        $bookingDate = "2020-07-21";
+        $purchasenum = DB::table('events')->where('id', $eventId)->select('purchasenum')->get()->all();
+        $pNum = $purchasenum[0];
+        $pNum->purchasenum  = $pNum->purchasenum + 1;   
+        //$purchasenum = $purchasenum + 1;
+        //dd($pNum->purchasenum);
+        $id = DB::table('bookings') -> insertGetId([
+            'event_id' => $eventId,
+            'user_id' => $userId,
+            'bookingDate' => $bookingDate,
+        ]);
+
+        DB::table('events')
+        ->where ('id', $eventId)
+        ->update([
+            'purchasenum' => $pNum->purchasenum,
+        ]);
+
+
+        
+        return redirect()->action('BookingController@index');
+
+        
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
