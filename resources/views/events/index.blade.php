@@ -47,7 +47,7 @@
                       Edit
                     </a><br>
 
-                    <a  style = "padding : 1px 25px" class = "alert alert-secondary"
+                    <a  style = "padding : 1px 25px" class = "alert alert-info"
                         href="#"
                         alt="Participants"
                         title="View Participants">
@@ -56,9 +56,9 @@
 
                     {!!Form::open(['action' => ['EventController@destroy', $event->id], 'method' => 'POST'])!!}
                         {{Form::hidden('_method','DELETE')}}
-                        {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
+                        {{Form::submit('Delete',['style' =>  'padding: 1px 63px; color: red; border: none'])}}
                       {!!Form::close()!!}
-                    
+                   
                 </td>
             </tr>
         @empty
