@@ -11,9 +11,10 @@
 
     <div class="eventDetails">
         <p>{{ $event->date }}</p>
-        <p style="font-weight: bold;">{{ $event->title}}</p>
+
         <p>by {{ $user_name[0]->name }}</p>
         
+
         <p>price: ${{ $event-> value }}</p>
         <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Ticket</a>
         <a href="#" class="btn btn-light active" role="button" aria-pressed="true">Save</a>
