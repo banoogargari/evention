@@ -159,10 +159,17 @@
                       {{ __('Logout') }}
                   </a>
 
+                  
+
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                   </form>
               </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('home') }}">
+                      {{ __('Profile') }}
+                  </a>
+                  </li>
           @endguest
         @endif
       </ul>
