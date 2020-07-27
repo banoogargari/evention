@@ -58,6 +58,7 @@ class EventController extends Controller
         //dd($userId);
         //'user_id' => $request->input('user_id'),
 
+
        // $cover_image = $request->input('image|nullable|max:1999') ;
         
         if($request->hasFile('image')){
@@ -70,6 +71,7 @@ class EventController extends Controller
             $fileNameToStore = 'noimage.jpg';
         }
 
+
         $id = DB::table('events') -> insertGetId([
             'user_id' => $userId,
             'title' => $request->input('title'),
@@ -79,6 +81,7 @@ class EventController extends Controller
             'value' => $request->input('value'),
             'capacity' => $request->input('capacity'),
             'video_price' => $request->input('video_price'),
+            'purchasenum' => 0,
             // 'video_available_date' => $request->input('video_available_date'),
             
 
@@ -86,6 +89,19 @@ class EventController extends Controller
         ]);
         
         return redirect()->action('EventController@index');
+    }
+
+    public function viewParticipants($eventID) {
+        //dd($eventID);
+    
+        $participants = DB::table('bookings')
+        ->join('users', 'bookings.user_id', '=', 'users.id')
+        ->where('bookings.event_id', '=', $eventID)
+        ->select('name', 'email')
+        ->get()->all();
+
+        //dd($participants);
+        return view('events.participantsView', ['participants' => $participants]);
     }
 
     /**
@@ -102,9 +118,16 @@ class EventController extends Controller
         ->where('events.id', '=', $event->id)
         ->select('name')
         ->get()->all();
+
+        $participants = DB::table('bookings')
+        ->join('users', 'bookings.user_id', '=', 'users.id')
+        ->where('bookings.event_id', '=', $event->id)
+        ->select('name')
+        ->get()->all(); 
+
         //$users = DB::table('users')->join($event, 'users.id', '=', 'event.user_id')->get();
-        //dd($user_name);
-        return view('events.show', ['event' => $event , 'user_name' => $user_name]);
+        //dd($participants);
+        return view('events.show', ['event' => $event , 'user_name' => $user_name, 'participants' => $participants]);
     }
 
     /**

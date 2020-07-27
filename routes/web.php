@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomepageController@index')->name('homepage');
+Route::get('/search', 'SearchController@index')->name('search');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -30,3 +31,4 @@ Route::get('/bookings/createNew/{id}', 'BookingController@createNew')->name('boo
 
 
 Route::resource('events', 'EventController');
+Route::get('/events/viewParticipants/{id}', 'EventController@viewParticipants')->name('viewParticipants')->middleware('auth');

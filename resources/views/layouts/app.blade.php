@@ -159,10 +159,17 @@
                       {{ __('Logout') }}
                   </a>
 
+                  
+
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                   </form>
               </li>
+              <li class="nav-item">
+              <a class="nav-link" href="{{ route('home') }}">
+                      {{ __('Profile') }}
+                  </a>
+                  </li>
           @endguest
         @endif
       </ul>
@@ -171,7 +178,8 @@
       </a>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <a href="{{ action('SearchController@index') }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Search</a>
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       </form>
     </div>
   </nav>
