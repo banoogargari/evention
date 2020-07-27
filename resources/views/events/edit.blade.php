@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col">
-<form action="{{ route('events.update', ['event' => $event])}}" method="POST">
+<form action="{{ route('events.update', ['event' => $event])}}" method="POST" enctype = "multipart/form-data">
 
     @method('PUT')
     @include('events.fields')

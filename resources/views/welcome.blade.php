@@ -16,7 +16,7 @@
       
         <div class="col-sm-6 col-md-4">
           <div class="card mb-4 shadow-sm">
-            <a href="events/{{$pevent->id}}"><img class="img-thumbnail img-fluid" src="{{$pevent->image}}" alt="">
+            <a href="events/{{$pevent->id}}"><img class="img-thumbnail img-fluid" src="/storage/img/{{$pevent->image}}" alt="">
                 
             </a>
             <div class="caption">
@@ -45,7 +45,7 @@
       
         <div class="col-sm-6 col-md-4">
           <div class="card mb-4 shadow-sm">
-            <a href="events/{{$event->id}}"><img class="img-thumbnail img-fluid" src="{{$event->image}}" alt="">
+            <a href="events/{{$event->id}}"><img class="img-thumbnail img-fluid" src="/storage/img/{{$pevent->image}}" alt="">
                 
             </a>
             <div class="caption">

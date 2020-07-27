@@ -57,12 +57,26 @@ class EventController extends Controller
         $userId = Auth::user()->id;
         //dd($userId);
         //'user_id' => $request->input('user_id'),
+
+
+       // $cover_image = $request->input('image|nullable|max:1999') ;
         
+        if($request->hasFile('image')){
+            $fileNameWithEx = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithEx, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'.time().'_'.$extension;
+            $path = $request->file('image')->storeAs('public/img',$fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+
         $id = DB::table('events') -> insertGetId([
             'user_id' => $userId,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'image' => $request->input('image'),
+            'image' => $fileNameToStore,
             'date' => $request->input('date'),
             'value' => $request->input('value'),
             'capacity' => $request->input('capacity'),
@@ -72,6 +86,7 @@ class EventController extends Controller
 
             
         ]);
+        
         return redirect()->action('EventController@index');
     }
 
@@ -118,6 +133,14 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
+
+    if($request->hasFile('image')){
+            $fileNameWithEx = $request->file('image')->getClientOriginalName();
+            $fileName = pathinfo($fileNameWithEx, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $fileName.'_'.time().'_'.$extension;
+            $path = $request->file('image')->storeAs('public/img',$fileNameToStore);
+             
             $userId = Auth::user()->id;
             DB::table('events')
             ->where('id', $event->id)
@@ -125,12 +148,13 @@ class EventController extends Controller
             'user_id' => $userId,
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'image' => $request->input('image'),
+            'image' => $fileNameToStore,
             'date' => $request->input('date'),
             'value' => $request->input('value'),
             'capacity' => $request->input('capacity'),
             
         ]);
+    }
         return redirect()->action('EventController@index');
     }
 
@@ -142,6 +166,9 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        DB::table('events')
+         ->where('id', $event->id)
+         ->delete();
+       return redirect('/events');
     }
 }
