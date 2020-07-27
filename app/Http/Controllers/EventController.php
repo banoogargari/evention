@@ -57,6 +57,7 @@ class EventController extends Controller
         $userId = Auth::user()->id;
         //dd($userId);
         //'user_id' => $request->input('user_id'),
+        
         $id = DB::table('events') -> insertGetId([
             'user_id' => $userId,
             'title' => $request->input('title'),
