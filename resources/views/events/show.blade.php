@@ -6,7 +6,7 @@
 <div class="container">
     <h1>{{ $event->title }}</h1>
     <div>
-        <img src="{{ $event->image }}" width=100% style="border-style:solid; border-color:rgb(180,180,180); padding:1px; border-width:1px;" alt="">
+        <img src="/storage/img/{{ $event->image }}" width=100% style="border-style:solid; border-color:rgb(180,180,180); padding:1px; border-width:1px;" alt="">
     </div>
 
     <div class="eventDetails">
