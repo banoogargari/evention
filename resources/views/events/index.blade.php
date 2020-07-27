@@ -47,7 +47,7 @@
                       Edit
                     </a>
                     <a
-                        href="#"
+                    href="{{ action('EventController@viewParticipants', ['id' => $event->id]) }}"
                         alt="Participants"
                         title="Participants">
                       View Participants

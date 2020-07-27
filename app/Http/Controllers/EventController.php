@@ -76,6 +76,19 @@ class EventController extends Controller
         return redirect()->action('EventController@index');
     }
 
+    public function viewParticipants($eventID) {
+        //dd($eventID);
+    
+        $participants = DB::table('bookings')
+        ->join('users', 'bookings.user_id', '=', 'users.id')
+        ->where('bookings.event_id', '=', $eventID)
+        ->select('name', 'email')
+        ->get()->all();
+
+        //dd($participants);
+        return view('events.participantsView', ['participants' => $participants]);
+    }
+
     /**
      * Display the specified resource.
      *
@@ -90,9 +103,16 @@ class EventController extends Controller
         ->where('events.id', '=', $event->id)
         ->select('name')
         ->get()->all();
+
+        $participants = DB::table('bookings')
+        ->join('users', 'bookings.user_id', '=', 'users.id')
+        ->where('bookings.event_id', '=', $event->id)
+        ->select('name')
+        ->get()->all(); 
+
         //$users = DB::table('users')->join($event, 'users.id', '=', 'event.user_id')->get();
-        //dd($user_name);
-        return view('events.show', ['event' => $event , 'user_name' => $user_name]);
+        //dd($participants);
+        return view('events.show', ['event' => $event , 'user_name' => $user_name, 'participants' => $participants]);
     }
 
     /**
