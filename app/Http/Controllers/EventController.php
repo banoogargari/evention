@@ -67,6 +67,7 @@ class EventController extends Controller
             'value' => $request->input('value'),
             'capacity' => $request->input('capacity'),
             'video_price' => $request->input('video_price'),
+            'purchasenum' => 0,
             // 'video_available_date' => $request->input('video_available_date'),
             
 
