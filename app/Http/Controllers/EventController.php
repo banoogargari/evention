@@ -58,6 +58,7 @@ class EventController extends Controller
         //dd($userId);
         //'user_id' => $request->input('user_id'),
 
+
        // $cover_image = $request->input('image|nullable|max:1999') ;
         
         if($request->hasFile('image')){
@@ -69,6 +70,7 @@ class EventController extends Controller
         } else {
             $fileNameToStore = 'noimage.jpg';
         }
+
 
         $id = DB::table('events') -> insertGetId([
             'user_id' => $userId,

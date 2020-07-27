@@ -49,8 +49,10 @@
     <label class="col-sm-2 col-form-label" for="value">Price</label>
     <div class="col-sm-10">
 
+
         <input name="value" type="number" min="0.00" max="10000.00" step="0.01" required = "required" class="form-control" value="{{ $event->value ?? '' }}"/>
         
+
         <small class="form-text text-muted">The Event price.</small>
     </div>
 </div>
