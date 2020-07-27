@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="col">
-<form action="{{ route('events.store') }}" method="POST">
+<form action="{{ route('events.store') }}" method="POST", enctype = "multipart/form-data">
     
     @include('events.fields')
 

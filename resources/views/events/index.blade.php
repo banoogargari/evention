@@ -28,7 +28,7 @@
                 <td>{{ $event->user_id}}</td>
 				<td>{{ $event->title }}</td>
                 <td>{{ $event->description }}</td>
-				<td><img src="{{ $event->image }}" width="60" alt=""></td>
+				<td><img src="/storage/img/{{ $event->image }}" width="60" alt=""></td>
                 <td>{{ $event->date }}</td>
                 <td>${{ $event->value }}</td>
                 <td>{{ $event->capacity }}</td>
