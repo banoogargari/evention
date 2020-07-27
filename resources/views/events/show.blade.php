@@ -30,6 +30,31 @@
         <h3>About this Event</h3>
         <p>{{ $event->description }}</p>
     </div>
+
+    <div>
+        <h1>Participants</h1>
+        <table class="table">
+	<thead>
+		<tr>
+            <th>name</th>
+            
+			
+		</tr>
+	</thead>
+	<tbody>
+		@forelse($participants as $participant)
+			<tr>
+                <td>{{ $participant->name}}</td>
+                
+            </tr>
+        @empty
+			
+			
+		@endforelse
+	</tbody>
+</table>
+
+    </div>
     
 </div>
 
