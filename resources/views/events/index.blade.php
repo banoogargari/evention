@@ -45,18 +45,26 @@
                         alt="Edit"
                         title="Edit">
                       Edit
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0b6071f5bf546b2c2dee29795b1eb2e02679f90b
                     </a>
-                    <a
+                    <a  style = "padding : 1px 25px" class = "alert alert-secondary"
                     href="{{ action('EventController@viewParticipants', ['id' => $event->id]) }}"
+<<<<<<< HEAD
                         alt="Participants"
+=======
+                      alt="Participants"
+>>>>>>> 0b6071f5bf546b2c2dee29795b1eb2e02679f90b
                         title="View Participants">
                        ViewParticipants
                     </a><br>
-
-                    {!!Form::open(['action' => ['EventController@destroy', $event->id], 'method' => 'POST'])!!}
-                        {{Form::hidden('_method','DELETE')}}
-                        {{Form::submit('Delete',['style' =>  'padding: 1px 63px; color: red; border: none'])}}
-                      {!!Form::close()!!}
+                      <form action="{{ action('EventController@destroy', ['event' => $event->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button style = "padding : 1px 62px"  type="submit" class="btn btn-danger" title="Delete" value="DELETE">Delete</button>
+                    </form>
                    
                 </td>
             </tr>
