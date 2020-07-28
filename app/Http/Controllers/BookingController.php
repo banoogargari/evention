@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\booking;
+use App\Event; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -20,9 +21,9 @@ class BookingController extends Controller
     }
 
     public function index()
-    {   
-        $userId = Auth::user()->id;
-        $bookings = DB::table('bookings')->where('user_id', $userId)->get();
+    {   $userId = Auth::user()->id;
+        $bookings = DB::table('bookings')->join('events', 'events.id', '=', 'bookings.event_id')->where('bookings.user_id', $userId)->select('bookings.id','events.title')->get();
+       
         return view ('bookings.index')
             ->with('bookings', $bookings);
     }
@@ -114,6 +115,7 @@ class BookingController extends Controller
      */
     public function show(booking $booking)
     {
+        //dd("hi");
         return view('bookings.show', ['booking' => $booking]);
     }
 
