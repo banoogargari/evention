@@ -25,22 +25,22 @@
                 <td>{{ $booking->bookingDate }}</td>
                 <td>{{ date('F d, Y', strtotime($booking->created_at)) }}</td>
                 <td class="actions">
-                    <a
+                    <a style = "padding : 1px 67px" class = "alert alert-primary"
                         href="{{ action('BookingController@show', ['booking' => $booking->id]) }}"
                         alt="View"
                         title="View">
                       View
-                    </a>
-                    <a
+                    </a><br>
+                    <a  style = "padding : 1px 71px" class = "alert alert-success"
                         href="{{ action('BookingController@edit', ['booking' => $booking->id]) }}"
                         alt="Edit"
                         title="Edit">
                       Edit
-                    </a>
+                    </a><br>
                     <form action="{{ action('BookingController@destroy', ['booking' => $booking->id]) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-link" title="Delete" value="DELETE">Delete</button>
+                        <button style = "padding : 1px 62px"  type="submit" class="btn btn-danger" title="Delete" value="DELETE">Delete</button>
                     </form>
                 </td>
             </tr>

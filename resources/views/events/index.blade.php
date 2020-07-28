@@ -53,11 +53,11 @@
                         title="View Participants">
                        ViewParticipants
                     </a><br>
-
-                    {!!Form::open(['action' => ['EventController@destroy', $event->id], 'method' => 'POST'])!!}
-                        {{Form::hidden('_method','DELETE')}}
-                        {{Form::submit('Delete',['style' =>  'padding: 1px 63px; color: red; border: none'])}}
-                      {!!Form::close()!!}
+                      <form action="{{ action('EventController@destroy', ['event' => $event->id]) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button style = "padding : 1px 62px"  type="submit" class="btn btn-danger" title="Delete" value="DELETE">Delete</button>
+                    </form>
                    
                 </td>
             </tr>

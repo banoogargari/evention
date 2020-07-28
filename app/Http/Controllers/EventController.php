@@ -202,6 +202,6 @@ class EventController extends Controller
         DB::table('events')
          ->where('id', $event->id)
          ->delete();
-       return redirect('/events');
+       return redirect()->action('EventController@index');
     }
 }
