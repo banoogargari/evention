@@ -172,9 +172,21 @@ class EventController extends Controller
             'image' => $fileNameToStore,
             'date' => $request->input('date'),
             'value' => $request->input('value'),
-            'capacity' => $request->input('capacity'),
+            'capacity' => $request->input('capacity')
             
         ]);
+    } else {             
+            $userId = Auth::user()->id;
+            DB::table('events')
+            ->where('id', $event->id)
+            ->update([
+            'user_id' => $userId,
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'date' => $request->input('date'),
+            'value' => $request->input('value'),
+            'capacity' => $request->input('capacity')
+             ]);
     }
         return redirect()->action('EventController@index');
     }
