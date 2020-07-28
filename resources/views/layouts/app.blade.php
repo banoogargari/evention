@@ -176,11 +176,19 @@
       <a class="navbar-brand" href="{{ route('events.create') }}">
         Create
       </a>
-      <form class="form-inline mt-2 mt-md-0">
+      <form action="{{ action('SearchController@index') }}" method="POST" role="search">
+      
+      @csrf
+        <div class="input-group">
+          <input type="text" class="form-control" name="query" placeholder="Search"> <span class="input-group-btn">
+          <button type="submit" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Search</button>
+        </div>
+      </form>
+      {{--<form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
         <a href="{{ action('SearchController@index') }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Search</a>
         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-      </form>
+      </form>--}}
     </div>
   </nav>
 </header>
