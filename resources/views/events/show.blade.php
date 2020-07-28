@@ -16,7 +16,9 @@
         
 
         <p>price: ${{ $event-> value }}</p>
-        <a href="{{ action('BookingController@createNew', ['id' => $event->id]) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Buy Ticket</a>
+        
+        <a href="{{ action('BookingController@order', ['id' => $event->id]) }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Buy Ticket</a>
+
         <a href="#" class="btn btn-light active" role="button" aria-pressed="true">Save</a>
 
         <p>Purchase quantity: {{ $event-> purchasenum }}</p>

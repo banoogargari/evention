@@ -41,6 +41,23 @@ class BookingController extends Controller
             ->with('events', $events);
     }
 
+
+    public function order($eventId)
+    {
+        //dd($eventId);
+        $event = DB::table('events')->where('id', $eventId)->get();
+        $event = $event[0];
+
+        $user_name = DB::table('events')
+        ->join('users', 'events.user_id', '=', 'users.id')
+        ->where('events.id', '=', $event->id)
+        ->select('name')
+        ->get()->all();
+
+        //dd($event);
+        return view('bookings.order', ['event' => $event, 'user_name' => $user_name]);
+    }
+
     public function createNew($eventId)
     {
         //dd($eventId);
@@ -64,8 +81,8 @@ class BookingController extends Controller
         ]);
 
 
-        
-        return redirect()->action('BookingController@index');
+        return view('bookings.confirmation', ['userId' => $userId]);
+        //return redirect()->action('BookingController@index');
 
         
     }

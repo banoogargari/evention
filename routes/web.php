@@ -28,7 +28,8 @@ Route::get('/test', function() { return "Goodbye"; });
 
 Route::resource('bookings', 'BookingController');
 Route::get('/bookings/createNew/{id}', 'BookingController@createNew')->name('bookings.createNew')->middleware('auth');
-
+Route::get('/bookings/order/{id}', 'BookingController@order')->name('bookings.createNew')->middleware('auth');
 
 Route::resource('events', 'EventController');
 Route::get('/events/viewParticipants/{id}', 'EventController@viewParticipants')->name('viewParticipants')->middleware('auth');
+
