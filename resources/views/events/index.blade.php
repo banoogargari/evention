@@ -45,18 +45,10 @@
                         alt="Edit"
                         title="Edit">
                       Edit
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b6071f5bf546b2c2dee29795b1eb2e02679f90b
                     </a>
                     <a  style = "padding : 1px 25px" class = "alert alert-secondary"
                     href="{{ action('EventController@viewParticipants', ['id' => $event->id]) }}"
-<<<<<<< HEAD
                         alt="Participants"
-=======
-                      alt="Participants"
->>>>>>> 0b6071f5bf546b2c2dee29795b1eb2e02679f90b
                         title="View Participants">
                        ViewParticipants
                     </a><br>
