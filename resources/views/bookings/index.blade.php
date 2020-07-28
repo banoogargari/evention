@@ -8,22 +8,22 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <!-- <th>ID</th> -->
             <th>Event</th>
-            <th>User</th>
-            <th>BookingDate</th>
-            <th>Created</th>
+            <!-- <th>User</th> -->
+            <!-- <th>BookingDate</th> -->
+            <!-- <th>Created</th> -->
             <th class="Actions">Actions</th>
         </tr>
     </thead>
     <tbody>
         @forelse ($bookings as $booking)
             <tr>
-                <td>{{ $booking->id }}</td>
-                <td>{{ $booking->event_id }}</td>
-				<td>{{ $booking->user_id }}</td>
-                <td>{{ $booking->bookingDate }}</td>
-                <td>{{ date('F d, Y', strtotime($booking->created_at)) }}</td>
+                {{-- <td>{{ $booking->id }}</td> --}}
+                <td>{{ $booking->title }}</td>
+				{{-- <td>{{ $booking->user_id }}</td> --}}
+                {{-- <td>{{ $booking->bookingDate }}</td> --}}
+                {{-- <td>{{ date('F d, Y', strtotime($booking->created_at)) }}</td> --}}
                 <td class="actions">
                     <a style = "padding : 1px 67px" class = "alert alert-primary"
                         href="{{ action('BookingController@show', ['booking' => $booking->id]) }}"
