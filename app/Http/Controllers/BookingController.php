@@ -81,7 +81,7 @@ class BookingController extends Controller
         ]);
 
 
-        return view('bookings.confirmation', ['userId' => $userId]);
+        return view('bookings.confirmation');
         //return redirect()->action('BookingController@index');
 
         
