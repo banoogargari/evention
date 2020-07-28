@@ -22,7 +22,7 @@ class BookingController extends Controller
 
     public function index()
     {   $userId = Auth::user()->id;
-        $bookings = DB::table('bookings')->join('events', 'events.id', '=', 'bookings.event_id')->where('bookings.user_id', $userId)->select('bookings.id','events.title')->get();
+        $bookings = DB::table('bookings')->join('events', 'events.id', '=', 'bookings.event_id')->where('bookings.user_id', $userId)->select('bookings.id','events.title', 'events.date')->get();
        
         return view ('bookings.index')
             ->with('bookings', $bookings);
@@ -116,6 +116,8 @@ class BookingController extends Controller
     public function show(booking $booking)
     {
         //dd("hi");
+        
+        //dd($userBookings);
         return view('bookings.show', ['booking' => $booking]);
     }
 

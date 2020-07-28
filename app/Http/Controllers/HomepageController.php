@@ -9,10 +9,13 @@ class HomepageController extends Controller
 {
     
     public function index()
-    {
-        $events = DB::table('events')->orderBy('date', 'desc')->get();
-
-        $popevents = DB::table('events')->orderBy('purchasenum', 'desc')->get();
+    {   $todayDate = date("Y-m-d");
+        //$events = DB::table('events')->orderBy('date', 'desc')->get();
+        
+        $events = DB::table('events')->where('date', '>',$todayDate)->orderBy('date', 'desc')->get();
+        //dd($events);
+        $popevents = DB::table('events')->where('date', '>',$todayDate)->orderBy('purchasenum', 'desc')->get();
+        
         
         return view('welcome')
             ->with('events', $events)
