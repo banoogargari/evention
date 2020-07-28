@@ -10,6 +10,7 @@
         <tr>
             <!-- <th>ID</th> -->
             <th>Event</th>
+            <th>Date</th>
             <!-- <th>User</th> -->
             <!-- <th>BookingDate</th> -->
             <!-- <th>Created</th> -->
@@ -21,6 +22,7 @@
             <tr>
                 {{-- <td>{{ $booking->id }}</td> --}}
                 <td>{{ $booking->title }}</td>
+                <td>{{ $booking->date }}</td>
 				{{-- <td>{{ $booking->user_id }}</td> --}}
                 {{-- <td>{{ $booking->bookingDate }}</td> --}}
                 {{-- <td>{{ date('F d, Y', strtotime($booking->created_at)) }}</td> --}}
