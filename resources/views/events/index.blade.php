@@ -62,7 +62,7 @@
                       <form action="{{ action('EventController@destroy', ['event' => $event->id]) }}" method="POST">
                         @method('DELETE')
                         @csrf
-                        <button style = "padding : 1px 62px"  type="submit" class="btn btn-link" title="Delete" value="DELETE">Delete</button>
+                        <button style = "padding : 1px 62px"  type="submit" class="btn btn-danger" title="Delete" value="DELETE">Delete</button>
                     </form>
                    
                 </td>
